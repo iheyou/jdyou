@@ -11,8 +11,8 @@ let activityList = [
 ];
 
 const $ = new Env('粉丝互动-加密');
-const notify = $.isNode() ? require('../jdpro/sendNotify') : '';
-const jdCookieNode = $.isNode() ? require('../jdpro/jdCookie.js') : '';
+const notify = $.isNode() ? require('../jdyou/sendNotify') : '';
+const jdCookieNode = $.isNode() ? require('../jdyou/jdCookie.js') : '';
 const RUHUI = $.isNode() ? (process.env.RUHUI ? process.env.RUHUI : `0`):`0`;
 const RUNCK = $.isNode() ? (process.env.RUNCK ? process.env.RUNCK : `9999`):`9999`;
 let cookiesArr = [],message = '';

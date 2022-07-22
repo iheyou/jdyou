@@ -3,9 +3,9 @@
 35 9 * * * jd_insight.js
 */
 const $ = new Env('京洞察问卷通知');
-const notify = $.isNode() ? require('../jdpro/sendNotify') : '';
+const notify = $.isNode() ? require('../jdyou/sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
-const jdCookieNode = $.isNode() ? require('../jdpro/jdCookie.js') : '';
+const jdCookieNode = $.isNode() ? require('../jdyou/jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [],
 	cookie = '';

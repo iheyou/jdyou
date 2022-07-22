@@ -2,7 +2,7 @@
 /*
 京东日常签到
 updateTime：2022-07-19
-10 0,8 * * * https://raw.githubusercontent.com/6dylan6/jdpro/main/jd_dailysign.js
+10 0,8 * * * https://raw.githubusercontent.com/6dylan6/jdyou/main/jd_dailysign.js
  */
 
 const $ = new Env('京东日常签到-加密');

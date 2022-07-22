@@ -4,13 +4,13 @@
 快捷入口：12:/￥H32Qx4jJlV￥ ，【京ㅛD○ōσng】星系牧场养牛牛，可获得DHA专属奶！
 号1默认给作者助力,后续 2给1 3给2 接龙,助力需要新用户，已助力过的不能在助力
 #伊利星系牧场
-1 0-23/3 * * * https://raw.githubusercontent.com/6dylan6/jdpro/main/jd_qqxing.js
+1 0-23/3 * * * https://raw.githubusercontent.com/6dylan6/jdyou/main/jd_qqxing.js
 */
 
 const $ = new Env('伊利星系牧场');
 //Node.js用户请在jdCookie.js处填写京东ck;
-const jdCookieNode = $.isNode() ? require('../jdpro/jdCookie.js') : '';
-const notify = $.isNode() ? require('../jdpro/sendNotify') : '';
+const jdCookieNode = $.isNode() ? require('../jdyou/jdCookie.js') : '';
+const notify = $.isNode() ? require('../jdyou/sendNotify') : '';
 Exchange = true;//是否自动兑换
 let cookiesArr = [],
     cookie = '';

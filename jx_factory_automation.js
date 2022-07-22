@@ -6,7 +6,7 @@
 //export COMMODITY_NAME="芦荟洗手液2瓶"
 2 10 20 5 * jx_factory_automation.js
 */
-const {Env} = require('../jdpro/function/magic');
+const {Env} = require('../jdyou/function/magic');
 const $ = new Env('M京喜工厂自动化');
 let commodityName = process.env.COMMODITY_NAME ? process.env.COMMODITY_NAME
     : '还没设置要生产商品的变量COMMODITY_NAME,先运行获取商品任务，例：export COMMODITY_NAME="芦荟洗手液2瓶"'

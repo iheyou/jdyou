@@ -5,7 +5,7 @@
 
 grep '6dylan6_1124' /ql/data/config/task_before.sh >/dev/null 2>&1 || grep '6dylan6_1124' /ql/config/task_before.sh
 if [[ $? != 0 ]];then
- cp /ql/repo/6dylan6_jdpro/docker/task_before.sh /ql/config/ >/dev/null 2>&1 || cp /ql/data/repo/6dylan6_jdpro/docker/task_before.sh /ql/data/config/
+ cp /ql/repo/6dylan6_jdyou/docker/task_before.sh /ql/config/ >/dev/null 2>&1 || cp /ql/data/repo/6dylan6_jdyou/docker/task_before.sh /ql/data/config/
 fi
 
 dir_shell=/ql/shell
@@ -43,19 +43,19 @@ var_name=(
 )
 
 name_js=(
-  6dylan6_jdpro_jd_fruit
-  6dylan6_jdpro_jd_pet
-  6dylan6_jdpro_jd_plantBean
-  6dylan6_jdpro_jd_dreamFactory
-  6dylan6_jdpro_jd_jdfactory
-#  6dylan6_jdpro_jd_jdzz
-#  6dylan6_jdpro_jd_jxnc
-#  6dylan6_jdpro_jd_bookshop
-  6dylan6_jdpro_jd_cash
-  6dylan6_jdpro_jd_sgmh
-#  6dylan6_jdpro_jd_cfd
-  6dylan6_jdpro_jd_health
-  6dylan6_jdpro_jd_moneyTree_help
+  6dylan6_jdyou_jd_fruit
+  6dylan6_jdyou_jd_pet
+  6dylan6_jdyou_jd_plantBean
+  6dylan6_jdyou_jd_dreamFactory
+  6dylan6_jdyou_jd_jdfactory
+#  6dylan6_jdyou_jd_jdzz
+#  6dylan6_jdyou_jd_jxnc
+#  6dylan6_jdyou_jd_bookshop
+  6dylan6_jdyou_jd_cash
+  6dylan6_jdyou_jd_sgmh
+#  6dylan6_jdyou_jd_cfd
+  6dylan6_jdyou_jd_health
+  6dylan6_jdyou_jd_moneyTree_help
 )
 
 name_config=(
