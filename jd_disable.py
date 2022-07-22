@@ -139,10 +139,7 @@ def reserve_task_only(
     for task1 in tem_tasks:
         for task2 in res_list:
             if task1.get("name") == task2.get("name"):
-                if flag1:
-                    dup_ids.append(task1.get("_id"))
-                else:
-                    dup_ids.append(task1.get("id"))
+                dup_ids.append(task1.get("id"))
                 logger.info(f"【✅保留】{task2.get('command')}")
                 task3 = task1
         if task3:
@@ -156,8 +153,6 @@ def disable_duplicate_tasks(ids: list) -> None:
     t = round(time.time() * 1000)
     url = f"http://{ipport}/api/crons/disable?t={t}"
     data = json.dumps(ids)
-    logger.info(len(ids))
-    logger.info(ids)
     headers["Content-Type"] = "application/json;charset=UTF-8"
     response = requests.put(url=url, headers=headers, json=ids)
     datas = json.loads(response.content.decode("utf-8"))
@@ -213,6 +208,5 @@ if __name__ == "__main__":
         logger.info("😁没有重复任务~")
     else:
         disable_duplicate_tasks(ids)
-        logger.info(ids)
     #if send:
         #send("💖禁用重复任务成功", f"\n{sum}\n{filter}\n{disable}")
