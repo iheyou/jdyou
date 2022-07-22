@@ -102,18 +102,13 @@ def get_duplicate_list(tasklist: list) -> tuple:
     names = []
     cmds = []
     for task in tasklist:
-        if flag1:
-            ids.append(task.get("_id"))
-        else:
-            ids.append(task.get("id"))
+        ids.append(task.get("id"))
         names.append(task.get("name"))
         cmds.append(task.get("command"))
-
     name_list = []
     for i, name in enumerate(names):
         if name not in name_list:
             name_list.append(name)
-
     tem_tasks = []
     tem_ids = []
     dup_ids = []
@@ -128,7 +123,6 @@ def get_duplicate_list(tasklist: list) -> tuple:
                 logger.info(f"【🚫禁用】{cmds[name_index[i]]}")
                 dup_ids.append(ids[name_index[i]])
         logger.info("")
-
     logger.info("=== 第一轮初筛结束 ===")
 
     return tem_ids, tem_tasks, dup_ids
@@ -162,8 +156,10 @@ def disable_duplicate_tasks(ids: list) -> None:
     t = round(time.time() * 1000)
     url = f"http://{ipport}/api/crons/disable?t={t}"
     data = json.dumps(ids)
+    logger.info(len(ids))
+    logger.info(ids)
     headers["Content-Type"] = "application/json;charset=UTF-8"
-    response = requests.put(url=url, headers=headers, data=data)
+    response = requests.put(url=url, headers=headers, json=ids)
     datas = json.loads(response.content.decode("utf-8"))
     if datas.get("code") != 200:
         logger.info(f"❌出错!!!错误信息为：{datas}")
@@ -178,7 +174,6 @@ def get_token() -> str or None:
     if not os.path.isfile(path):
         path = '/ql/data/config/auth.json'  # 尝试设置青龙 auth 新版文件地址
         flag1 = False
-        logger.info(data.get("token"))
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -204,14 +199,12 @@ if __name__ == "__main__":
         exit(1)
     filter_list, res_list = filter_res_sub(tasklist)
     tem_ids, tem_tasks, dup_ids = get_duplicate_list(filter_list)
-    
+
     # 是否在重复任务中只保留设置的前缀
     if res_only:
         ids = reserve_task_only(tem_ids, tem_tasks, dup_ids, res_list)
     else:
         ids = dup_ids
-        logger.info("你选择保留除了设置的前缀以外的其他任务")
-
     sum = f"所有任务数量为：{len(tasklist)}"
     filter = f"过滤的任务数量为：{len(res_list)}"
     disable = f"禁用的任务数量为：{len(ids)}"
@@ -220,5 +213,6 @@ if __name__ == "__main__":
         logger.info("😁没有重复任务~")
     else:
         disable_duplicate_tasks(ids)
+        logger.info(ids)
     #if send:
         #send("💖禁用重复任务成功", f"\n{sum}\n{filter}\n{disable}")
